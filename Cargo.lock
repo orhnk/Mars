@@ -3,9 +3,49 @@
 version = 3
 
 [[package]]
+name = "decision_tree"
+version = "0.1.0"
+
+[[package]]
+name = "dimensionality_reduction"
+version = "0.1.0"
+
+[[package]]
+name = "gradient_boosting"
+version = "0.1.0"
+
+[[package]]
 name = "gradient_descent"
 version = "0.1.0"
 
 [[package]]
+name = "k_means"
+version = "0.1.0"
+
+[[package]]
+name = "knn"
+version = "0.1.0"
+
+[[package]]
+name = "linear_regression"
+version = "0.1.0"
+
+[[package]]
+name = "logistic_regression"
+version = "0.1.0"
+
+[[package]]
 name = "mars-examples"
+version = "0.1.0"
+
+[[package]]
+name = "naive_bayes"
+version = "0.1.0"
+
+[[package]]
+name = "random_forest"
+version = "0.1.0"
+
+[[package]]
+name = "svm"
 version = "0.1.0"

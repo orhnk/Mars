@@ -2,5 +2,15 @@
 
 members = [
     "gradient_descent",
+    "linear_regression",
+    "logistic_regression",
+    "random_forest",
+    "decision_tree",
+    "svm",
+    "naive_bayes",
+    "knn",
+    "k_means",
+    "dimensionality_reduction",
+    "gradient_boosting",
     "examples",
 ]
