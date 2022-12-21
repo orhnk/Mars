@@ -1,0 +1,7 @@
+[package]
+name = "mars-examples"
+version = "0.1.0"
+
+[[bin]]
+name = "gradient_descent"
+path = "gradient_descent.rs"
