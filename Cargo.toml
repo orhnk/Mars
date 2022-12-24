@@ -12,5 +12,6 @@ members = [
     "k_means",
     "dimensionality_reduction",
     "gradient_boosting",
+    "loss_functions",
     "examples",
 ]

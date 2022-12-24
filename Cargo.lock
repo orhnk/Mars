@@ -35,6 +35,10 @@ name = "logistic_regression"
 version = "0.1.0"
 
 [[package]]
+name = "loss_functions"
+version = "0.1.0"
+
+[[package]]
 name = "mars-examples"
 version = "0.1.0"
 
