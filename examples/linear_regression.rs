@@ -55,4 +55,3 @@ fn main() {
     let final_prediction = model.predict(5.0);
     println!("Final prediction: {}", final_prediction);
 }
-

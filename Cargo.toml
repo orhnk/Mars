@@ -13,5 +13,7 @@ members = [
     "dimensionality_reduction",
     "gradient_boosting",
     "loss_functions",
+    "phobos", # is a model-saver like pickle in python. Name comes from one of mars's moons.
+    "mars_playground",
     "examples",
 ]

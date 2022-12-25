@@ -1,7 +1,13 @@
 extern crate csv;
 extern crate gnuplot;
 
-use gnuplot::Figure;
+use gnuplot::{
+    Figure,
+    Color,
+}
+;
+use std::io;
+use std::thread;
 
 // fn main() {
 //     let mut x: Vec<f64> = Vec::new();
@@ -94,35 +100,68 @@ impl Model {
     }
 }
 
-use std::io;
+fn plot(mut fg: Figure, x: &Vec<f64>, y: &Vec<f64>, xs:&Vec<f64>, ys:&Vec<f64>) {
+    let axes = fg.axes2d();
+    axes.points(
+        x, // x-coordinates
+        y, // y-coordinates
+        &[Color("green")],
+    )
+    .lines(xs, ys, &[Color("red")]);
+    fg.show()
+        .expect("Couldn't plot the Figure you gave (with the dataset)");
+}
 
 fn main() {
-    eprintln!("This neural network is trained to take the double of you input");
+    eprintln!("This neural network is trained to take y = 5x + 13 -> sample linear equation");
     let learning_rate = 0.0001;
     let num_iterations = 10000000;
-    // let training_data = [
-    //     DataPoint::new(1., 3.),
-    //     DataPoint::new(4., 6.),
-    //     DataPoint::new(6., 2.),
-    // ];
-    let mut train_data = Vec::new();
-    for i in 0..10 {
-        train_data.push(DataPoint::new(i as f64, (i * 2) as f64));
+
+    let fg = Figure::new(); //-| For plotting
+    let mut x = Vec::new(); //----| ^^^^^^^^^^^^
+    let mut y = Vec::new(); //----|
+    let mut train_data:Vec<DataPoint> = Vec::new();
+
+    // let record:Vec<Vec<f64>>;
+    let mut rdr = csv::Reader::from_path("example_data/test.csv").unwrap();
+    for result in rdr.records() {
+        let record = result.unwrap();
+        // for point in &train_data {
+        // x.push(point.x);
+        // y.push(point.y);
+        x.push(record[0].parse().unwrap());
+        y.push(record[1].parse().unwrap());
     }
     let mut model: Model = Default::default(); // Model changes it's weights and biases by the time
-                                               // passes. That's why It has to be marked as mutable.
+    // passes. That's why It has to be marked as mutable.
+    for (x, y) in x.iter().zip(&y) {
+        train_data.push(DataPoint::new(*x, *y));
+    }
+
     model.train(&train_data, learning_rate, num_iterations);
     let loss = model.loss(&train_data);
     let pred = model.predict(10.);
     println!("Loss: {loss}, Pred 10.0: {pred}");
     println!("please enter some text to send inputs to your model");
+
+    // let (max, min) = (record[0].iter().max(), record[1].iter().min());
+    let xs = vec![-10.0, -1.0, 0.0, 2.0, 12.0, 34.0, 55.0, 100.];
+    let ys: Vec<f64> = xs.iter().map(|x| model.predict(*x)).collect();
+
+    // let equation = model.w + model.b; // -> (x, y) values for linear line equation
+    thread::spawn(move || {
+        plot(fg, &x, &y, &xs, &ys);
+    });
+
     loop {
         let mut input = String::new();
         io::stdin()
             .read_line(&mut input)
             .expect("Failed to read line");
-        let num:f64 = input.trim().parse().unwrap();
+        let num: f64 = input.trim().parse().unwrap();
         let pred = model.predict(num);
         println!("Model Predicted: {pred}");
     }
 }
+/* This is for y = 5x + 13 */
+/* This is a gradient descent implementation so it can find any y = ax + b function! wow */

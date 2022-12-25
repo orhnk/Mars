@@ -12,11 +12,3 @@ fn mean_abs_error(actual:&Vec<f64>, predictions:&Vec<f64>) -> f64 {
     base::mean(result)
 }
 
-fn main() {
-    let act = vec![1.1, 2.0, 1.7];
-    let pred = vec![1.0, 1.7, 1.5];
-    let result = mean_abs_error(&act, &pred);
-    print!("{result}");
-}
-
-

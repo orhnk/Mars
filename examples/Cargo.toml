@@ -6,38 +6,38 @@ version = "0.1.0"
 gnuplot = "*"
 csv = "*"
 
-[[bin]]
+[[example]]
 name = "gradient_descent"
 path = "gradient_descent.rs"
 
-[[bin]]
+[[example]]
 name = "mean_absolute_error"
 path = "mean_absolute_error.rs"
 
-[[bin]]
+[[example]]
 name = "binary_cross_entropy"
 path = "binary_cross_entropy.rs"
 
-[[bin]]
+[[example]]
 name = "mean_squared_error"
 path = "mean_squared_error.rs"
 
-[[bin]]
+[[example]]
 name = "linear_regression"
 path = "linear_regression.rs"
 
-# [[bin]]
-# name = "binary_cross_entropy"
-# path = "binary_cross_entropy.rs"
+[[example]]
+name = "root_mean_squared_error"
+path = "root_mean_squared_error.rs"
 
-# [[bin]]
-# name = "binary_cross_entropy"
-# path = "binary_cross_entropy.rs"
+# [[example]]
+# name = "exampleary_cross_entropy"
+# path = "exampleary_cross_entropy.rs"
 
-# [[bin]]
-# name = "binary_cross_entropy"
-# path = "binary_cross_entropy.rs"
+# [[example]]
+# name = "exampleary_cross_entropy"
+# path = "exampleary_cross_entropy.rs"
 
-# [[bin]]
-# name = "binary_cross_entropy"
-# path = "binary_cross_entropy.rs"
+# [[example]]
+# name = "exampleary_cross_entropy"
+# path = "exampleary_cross_entropy.rs"
