@@ -97,32 +97,21 @@ impl Model {
 use std::io;
 
 fn main() {
-    eprintln!("This neural network is trained to take the double of you input");
     let learning_rate = 0.0001;
     let num_iterations = 10000000;
-    // let training_data = [
-    //     DataPoint::new(1., 3.),
-    //     DataPoint::new(4., 6.),
-    //     DataPoint::new(6., 2.),
-    // ];
+    let training_data = [DataPoint::new(1.,3.), DataPoint::new(4.,6.), DataPoint::new(6.,2.)];
     let mut train_data = Vec::new();
     for i in 0..10 {
-        train_data.push(DataPoint::new(i as f64, (i * 2) as f64));
+        train_data.push(DataPoint::new(i as f64, 2_f64*i as f64));
     }
-    let mut model: Model = Default::default(); // Model changes it's weights and biases by the time
-                                               // passes. That's why It has to be marked as mutable.
+    let mut model:Model = Default::default(); // Model changes it's weights and biases by the time
+    // passes. That's why It has to be marked as mutable.
     model.train(&train_data, learning_rate, num_iterations);
     let loss = model.loss(&train_data);
     let pred = model.predict(10.);
     println!("Loss: {loss}, Pred 10.0: {pred}");
-    println!("please enter some text to send inputs to your model");
     loop {
         let mut input = String::new();
-        io::stdin()
-            .read_line(&mut input)
-            .expect("Failed to read line");
-        let num:f64 = input.trim().parse().unwrap();
-        let pred = model.predict(num);
-        println!("Model Predicted: {pred}");
-    }
+        io::stdin().read_line(&mut input).expect("Failed to read line");
+        println!("You entered: {}", input);    }
 }

@@ -22,9 +22,9 @@ path = "binary_cross_entropy.rs"
 name = "mean_squared_error"
 path = "mean_squared_error.rs"
 
-# [[bin]]
-# name = "binary_cross_entropy"
-# path = "binary_cross_entropy.rs"
+[[bin]]
+name = "linear_regression"
+path = "linear_regression.rs"
 
 # [[bin]]
 # name = "binary_cross_entropy"
