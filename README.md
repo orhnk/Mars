@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/101834410/209478151-5dd3ff09-4759-44f1-907c-81c0d0a0a5fc.jpg">
+</p>
+
 # Mars
 Mars (ma-rs) is an blazingly fast rust machine learning library. Simple and Powerful! 🦀🚀
 # Contribution:
@@ -22,4 +26,5 @@ cargo run --example gradient_descent --release
 without `--release` fast compilaton (+3 seconds) slow training (--much more than 3 seconds)
 
 with `--release` slow compilation (-5 seconds) lot faster training (++much more time than 5 seconds)
+
 
